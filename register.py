@@ -1,4 +1,4 @@
-from sutterMP285 import sutterMP285
+from mp285 import MP285
 import pylab as pl
 
 # ask for animal name (cross reference with C:\Data available animals)
