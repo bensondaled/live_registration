@@ -98,13 +98,13 @@ class sutterMP285 :
 			sys.exit(1)
 		
 		# set move velocity to 200
-		self.setVelocity(200,10)
-		self.updatePanel() # update controller panel
-		(stepM,currentV,vScaleF)= self.getStatus()
-		if currentV == 200:
-			print 'sutterMP285 ready'
-		else:
-			print 'sutterMP285: WARNING Sutter did not respond at startup.'
+		#self.setVelocity(200,10)
+		#self.updatePanel() # update controller panel
+		#(stepM,currentV,vScaleF)= self.getStatus()
+		#if currentV == 200:
+        #    print 'sutterMP285 ready'
+		#else:
+		#	print 'sutterMP285: WARNING Sutter did not respond at startup.'
 	# destructor
 	def __del__(self):
 		self.ser.close()
