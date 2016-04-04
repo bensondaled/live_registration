@@ -1,23 +1,12 @@
 from mp285 import MP285
+from controllers import Controller
 import pylab as pl
 
-# ask for animal name (cross reference with C:\Data available animals)
-
-# ask for session to align to, with default being most recent
-
-# load target file
-target_filename = tk.askFileDialog()
-target = np.load(target_filename)
-
-# ask user to move manually to approximate location
-pl.imshow(target)
-
-# do the alignment
-
-# report ailgnment outcome, possible manual interventions
-
+c = Controller()
+# each animal has a template, and every time it is put on rig, a new image is taken and stored
+# then most recent one is shown on next day
+# after alignment:
 # zero the sutter
-
 # close sutter stuff such that scanimage can run
 # display animal, image of alignment, and a list of the positions that have been imaged relative to this zero
 # (will require caching these b/c data is sent off computer every night)
