@@ -17,10 +17,12 @@ class View(wx.Frame):
         self.but_load = wx.Button(self, label='Load Subject')
         self.but_reg = wx.Button(self, label='Register')
         self.but_freg = wx.Button(self, label='Forced Register')
+        self.but_save = wx.Button(self, label='Save')
         self.sub_box = wx.ListBox(self)
         self.panel_left_sizer.Add(self.but_load)
         self.panel_left_sizer.Add(self.but_reg)
-       self.panel_left_sizer.Add(self.but_freg)
+        self.panel_left_sizer.Add(self.but_save)
+        self.panel_left_sizer.Add(self.but_freg)
         self.panel_left_sizer.Add(self.add_sub_button)
         self.panel_left_sizer.Add(self.sub_box, flag=wx.EXPAND|wx.ALL, proportion=1)
         
