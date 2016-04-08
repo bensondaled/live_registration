@@ -1,5 +1,6 @@
 import numpy as np
 import serial, struct, warnings
+import win32api
 
 class MP285():
     ABS,REL = 0,1
@@ -73,10 +74,12 @@ class MP285():
         self._wait()
         self.refresh()
 
-    def zero(self):
+    def zero(self, warn=True):
         self.ser.write('o\r')
         self._wait()
         self.refresh()
+        if warn:
+            win32api.MessageBox(0, 'Zero MP285 manually now for smoother experience.', 'MP285', 0x00001000) 
 
     def refresh(self):
         self.ser.write('n\r')

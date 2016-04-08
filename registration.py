@@ -1,6 +1,5 @@
 import numpy as np
 import cv2, time
-import itertools as it
 import pylab as pl
 
 def cut_black(im):
@@ -8,7 +7,7 @@ def cut_black(im):
     nonzero_y,nonzero_x = np.where(imb>30)
     return im[nonzero_y.min():nonzero_y.max(), nonzero_x.min():nonzero_x.max()]
 
-def register_imgs(tmp, cam, ctrl):
+def register_imgs(tmp, cam):
     pad = 130
     tmp = cut_black(tmp)
     tmp = tmp[pad:-pad,pad:-pad]
@@ -20,3 +19,12 @@ def register_imgs(tmp, cam, ctrl):
     pl.imshow(fr)
     pl.subplot(2,2,3)
     pl.imshow(tmp)
+    best_idx = np.unravel_index(np.argmax(corr), corr.shape)
+    return best_idx
+    
+def apply_registration(r, ctrl, calib):
+    # calib is in pixels per micron
+    ctrl.zero(warn=False)
+    pos = r/calib
+    ctrl.goto(pos)
+    ctrl.zero(warn=True)
