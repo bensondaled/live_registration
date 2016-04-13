@@ -13,12 +13,12 @@ class MP285():
         return w[1]*256 + float(w[0])
         
     def setup(self):
+        self.set_mode(self.REL)
         stat = self.get_status()
         self.step_mult = self.word_to_val(stat['step_mult'])
         self.step_div = self.word_to_val(stat['step_div'])
         self.uoffset = self.word_to_val(stat['uoffset'])
         
-        self.set_mode(self.REL)
         self.set_velocity(self.vel)
     def get_status(self):
         self.ser.write('s\r')
